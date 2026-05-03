@@ -4,12 +4,13 @@ module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
 
   const config = {
-    entry: './src/employees.jsx',
+    entry: {
+      employees: './src/employees.jsx',
+    },
 
     output: {
+      filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'public'),
-      filename: isProduction ? 'employees.bundle.js' : 'employees.bundle.js',
-      clean: true,
     },
 
     module: {
